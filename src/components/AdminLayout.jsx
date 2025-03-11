@@ -41,26 +41,7 @@ const AdminLayout = () => {
       {/* Main Content Area */}
       <div className="flex-1 bg-gray-100 p-8">
         <h1 className="text-3xl font-semibold text-gray-800 mb-6">Admin Dashboard</h1>
-        {
-          location.pathname == '/admin' && <div className="mb-8 bg-white p-6 rounded-lg shadow-md">
-          <h2 className="text-2xl font-bold text-gray-700 mb-4">Dashboard Overview</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="p-6 bg-blue-100 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-600">Total Sales</h3>
-              <p className="text-2xl font-bold text-gray-800">$5,000</p>
-            </div>
-            <div className="p-6 bg-green-100 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-600">Orders</h3>
-              <p className="text-2xl font-bold text-gray-800">120</p>
-            </div>
-            <div className="p-6 bg-yellow-100 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-600">Products</h3>
-              <p className="text-2xl font-bold text-gray-800">50</p>
-            </div>
-          </div>
-        </div>
-         
-        }
+        
         {/* Outlet for rendering child components */}
         <Outlet />
       </div>
