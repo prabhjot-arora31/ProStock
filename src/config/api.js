@@ -1,2 +1,2 @@
-const api = 'http://localhost:9001'
+const api = 'https://pro-stock-server.vercel.app'
 export default api
