@@ -5,6 +5,7 @@ import api from '../config/api';
 const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false)
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
@@ -22,8 +23,8 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Validate form fields
+setLoading(true)
+   
     if (password !== confirmPassword) {
       setError('Passwords do not match!');
       return;
@@ -48,12 +49,14 @@ const Register = () => {
 
       if (response.ok) {
         setSuccess('Registration successful!');
+        navigate('/login')
       } else {
         setError(data.message || 'Something went wrong.');
       }
     } catch (error) {
       setError('Error connecting to the server.');
     }
+    setLoading(false)
   };
 
   return (
@@ -105,8 +108,8 @@ const Register = () => {
           />
         </div>
         <div className="text-center">
-          <button type="submit" className="bg-indigo-600 text-white px-6 py-2 rounded">
-            Register
+        <button type="submit" className="bg-indigo-600 text-white px-6 py-2 rounded">
+            {loading ? 'Loading' : 'Register'}
           </button>
         </div>
         <div className='text-center'>

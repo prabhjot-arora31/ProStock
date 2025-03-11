@@ -19,17 +19,18 @@ import Checkout from './components/Checkout'
 import OrderConfirmation from './pages/OrderConfirmation'
 import OrdersList from './components/OrdersList'
 import SalesDashboard from './components/SalesDashboard'
+import ContactForm from './pages/Contact'
 function App() {
   const [count, setCount] = useState(0)
   const navigate = useNavigate()
   const location = useLocation()
-  useEffect(() => {
-    if(localStorage.getItem('token') && location.pathname == '/')
-      {
-        navigate('/home/'+localStorage.getItem('_id'))
-      }
-      else  navigate('/register')
-  },[])
+  // useEffect(() => {
+  //   if(localStorage.getItem('token') && location.pathname == '/')
+  //     {
+  //       navigate('/home/'+localStorage.getItem('_id'))
+  //     }
+  //     else  navigate('/register')
+  // },[])
   return (
     <>
     <Header />
@@ -49,6 +50,7 @@ function App() {
       <Route path='/register' element={<Register />}/>
       <Route path='/product/:id' element={<ProductDetails />}/>
       <Route path='/cart' element={<Cart />}/>
+      <Route path='/contact' element={<ContactForm />}/>
       <Route path='/checkout' element={<Checkout />}/>
       <Route path='/order-confirmation/:orderId'  element={<OrderConfirmation />}/>
     </Routes>

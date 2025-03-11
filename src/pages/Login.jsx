@@ -7,6 +7,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
     useEffect(() => {
         if(localStorage.getItem('token'))
@@ -14,7 +15,7 @@ const Login = () => {
     },[])
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true)
     const user = { email, password };
     setError('')
     try {
@@ -42,6 +43,7 @@ const Login = () => {
     } catch (error) {
       setError('Error connecting to the server.');
     }
+    setLoading(false)
   };
 
   return (
@@ -74,7 +76,7 @@ const Login = () => {
         </div>
         <div className="text-center">
           <button type="submit" className="bg-indigo-600 text-white px-6 py-2 rounded">
-            Login
+            {loading ? 'Loading' : 'Login'}
           </button>
         </div>
           <div className='text-center'>
